@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.AlgOrder" table="AlgOrder" catalog="meschema">
+        <id name="orderid">
+            <column name="orderid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="filename">
+            <column name="filename" sql-type="varchar" length="150" not-null="true"/>
+        </property>
+        <property name="datesent">
+            <column name="datesent" sql-type="date" length="10" not-null="true"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="bit"/>
+        </property>
+    </class>
+</hibernate-mapping>

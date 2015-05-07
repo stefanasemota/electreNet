@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.ScrapBook" table="ScrapBook" catalog="meschema">
+        <id name="scrapbookid">
+            <column name="scrapbookid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="p01DiliCmovementCode">
+            <column name="P01_diliCmovementCode" sql-type="char" length="1"/>
+        </property>
+        <property name="p02DiliCean">
+            <column name="P02_diliCean" sql-type="varchar" length="13" not-null="true"/>
+        </property>
+        <property name="p03DiliCgencode">
+            <column name="P03_diliCgencode" sql-type="bigint" length="19"/>
+        </property>
+        <property name="p04DiliCdateOfTariffApplicable">
+            <column name="P04_diliCdateOfTariffApplicable" sql-type="date" length="10"/>
+        </property>
+        <property name="p05DiliCavailabilityCode">
+            <column name="P05_diliCavailabilityCode" sql-type="int" length="10"/>
+        </property>
+        <property name="p06DiliCpriceType">
+            <column name="P06_diliCpriceType" sql-type="int" length="10"/>
+        </property>
+        <property name="p07DiliCpriceAndVat">
+            <column name="P07_diliCpriceAndVat" sql-type="double" length="22"/>
+        </property>
+        <property name="p08DiliCdiscountClassification">
+            <column name="P08_diliCdiscountClassification" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p09DiliCvat1">
+            <column name="P09_diliCvat_1" sql-type="double" length="22"/>
+        </property>
+        <property name="p10DiliCamountTaxExempt1">
+            <column name="P10_diliCamountTaxExempt_1" sql-type="double" length="22"/>
+        </property>
+        <property name="p11DiliCvat2">
+            <column name="P11_diliCvat_2" sql-type="double" length="22"/>
+        </property>
+        <property name="p12DiliCamountTaxExempt2">
+            <column name="P12_diliCamountTaxExempt_2" sql-type="double" length="22"/>
+        </property>
+        <property name="p13DiliCvat3">
+            <column name="P13_diliCvat_3" sql-type="double" length="22"/>
+        </property>
+        <property name="p14DiliCamountTaxExempt3">
+            <column name="P14_diliCamountTaxExempt_3" sql-type="double" length="22"/>
+        </property>
+        <property name="p15DiliCreturnCode">
+            <column name="P15_diliCreturnCode" sql-type="int" length="10"/>
+        </property>
+        <property name="p16DiliCpriceCode">
+            <column name="P16_diliCpriceCode" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p17DiliCdatePublished">
+            <column name="P17_diliCdatePublished" sql-type="date" length="10"/>
+        </property>
+        <property name="p18DiliCtypeProduct">
+            <column name="P18_diliCtypeProduct" sql-type="varchar" length="100"/>
+        </property>
+        <property name="p19DiliCdateEndOfCommercialization">
+            <column name="P19_diliCdateEndOfCommercialization" sql-type="date" length="10"/>
+        </property>
+        <property name="p20DiliCwordingStandard">
+            <column name="P20_diliCwordingStandard" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p21DiliCwordingCounter">
+            <column name="P21_diliCwordingCounter" sql-type="varchar" length="100"/>
+        </property>
+        <property name="p22DiliCstoreDisplay">
+            <column name="P22_diliCstoreDisplay" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p23DiliCthickness">
+            <column name="P23_diliCthickness" sql-type="double" length="22"/>
+        </property>
+        <property name="p24DiliCwidth">
+            <column name="P24_diliCwidth" sql-type="double" length="22"/>
+        </property>
+        <property name="p25DiliCheight">
+            <column name="P25_diliCheight" sql-type="double" length="22"/>
+        </property>
+        <property name="p26DiliCweight">
+            <column name="P26_diliCweight" sql-type="double" length="22"/>
+        </property>
+        <property name="p27DiliCwordingExtended">
+            <column name="P27_diliCwordingExtended" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p28DiliCpublisher">
+            <column name="P28_diliCpublisher" sql-type="varchar" length="100"/>
+        </property>
+        <property name="p29DiliCcollectionName">
+            <column name="P29_diliCcollectionName" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p30DiliCauthor">
+            <column name="P30_diliCauthor" sql-type="varchar" length="100"/>
+        </property>
+        <property name="p31DiliCbinding">
+            <column name="P31_diliCbinding" sql-type="varchar" length="2"/>
+        </property>
+        <property name="p32DiliCIsbn">
+            <column name="P32_diliCIsbn" sql-type="varchar" length="10"/>
+        </property>
+        <property name="p33DiliCbookDistributorReference">
+            <column name="P33_diliCbookDistributorReference" sql-type="varchar" length="12"/>
+        </property>
+        <property name="p34DiliCserialCollection">
+            <column name="P34_diliCserialCollection" sql-type="varchar" length="10"/>
+        </property>
+        <property name="p35DiliCtheme">
+            <column name="P35_diliCtheme" sql-type="varchar" length="4"/>
+        </property>
+        <property name="p36DiliCIsbnPublisher">
+            <column name="P36_diliCIsbnPublisher" sql-type="varchar" length="8"/>
+        </property>
+        <property name="p37DiliClinkingCodes">
+            <column name="P37_diliClinkingCodes" sql-type="int" length="10"/>
+        </property>
+        <property name="p38DiliCeanRelatedProducts">
+            <column name="P38_diliCeanRelatedProducts" sql-type="varchar" length="13"/>
+        </property>
+        <property name="p39DiliCcommandableUnit">
+            <column name="P39_diliCcommandableUnit" sql-type="int" length="10"/>
+        </property>
+        <property name="p40DiliCjointSalesPackage">
+            <column name="P40_diliCjointSalesPackage" sql-type="int" length="10"/>
+        </property>
+        <property name="p41DiliCsymbolization">
+            <column name="P41_diliCsymbolization" sql-type="int" length="10"/>
+        </property>
+        <property name="p42DiliCuniqueOrMultitpleDistribution">
+            <column name="P42_diliCuniqueOrMultitpleDistribution" sql-type="int" length="10"/>
+        </property>
+        <property name="p43DiliCnumberOfReference">
+            <column name="P43_diliCnumberOfReference" sql-type="int" length="10"/>
+        </property>
+        <property name="p44DiliCdateOfCreation">
+            <column name="P44_diliCdateOfCreation" sql-type="date" length="10"/>
+        </property>
+        <property name="p45DiliCdateOfLastModification">
+            <column name="P45_diliCdateOfLastModification" sql-type="date" length="10"/>
+        </property>
+        <property name="p46DiliCfuDateOfTariffApplicable">
+            <column name="P46_diliCfuDateOfTariffApplicable" sql-type="date" length="10"/>
+        </property>
+        <property name="p47DiliCfuAvailabilityCode">
+            <column name="P47_diliCfuAvailabilityCode" sql-type="int" length="10"/>
+        </property>
+        <property name="p48DiliCfuPriceType">
+            <column name="P48_diliCfuPriceType" sql-type="int" length="10"/>
+        </property>
+        <property name="p49DiliCfuPriceAndVat">
+            <column name="P49_diliCfuPriceAndVat" sql-type="double" length="22"/>
+        </property>
+        <property name="p50DiliCfuDiscountClassification">
+            <column name="P50_diliCfuDiscountClassification" sql-type="varchar" length="50"/>
+        </property>
+        <property name="p51DiliCfuVat1">
+            <column name="P51_diliCfuVat_1" sql-type="double" length="22"/>
+        </property>
+        <property name="p52DiliCfuAmountTaxExempt1">
+            <column name="P52_diliCfuAmountTaxExempt_1" sql-type="double" length="22"/>
+        </property>
+        <property name="p53DiliCfuVat2">
+            <column name="P53_diliCfuVat_2" sql-type="double" length="22"/>
+        </property>
+        <property name="p54DiliCfuAmountTaxExempt2">
+            <column name="P54_diliCfuAmountTaxExempt_2" sql-type="double" length="22"/>
+        </property>
+        <property name="p55DiliCfuVat3">
+            <column name="P55_diliCfuVat_3" sql-type="double" length="22"/>
+        </property>
+        <property name="p56DiliCfuAmountTaxExempt3">
+            <column name="P56_diliCfuAmountTaxExempt_3" sql-type="double" length="22"/>
+        </property>
+        <property name="p57DiliCfuReturnCode">
+            <column name="P57_diliCfuReturnCode" sql-type="int" length="10"/>
+        </property>
+        <property name="p58DiliCfuPriceCode">
+            <column name="P58_diliCfuPriceCode" sql-type="varchar" length="10"/>
+        </property>
+        <property name="eleNetTitle">
+            <column name="eleNetTitle" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetCompleteBookTitle">
+            <column name="eleNetCompleteBookTitle" sql-type="varchar" length="120"/>
+        </property>
+        <property name="eleNetEanFaulty">
+            <column name="eleNetEanFaulty" sql-type="varchar" length="13"/>
+        </property>
+        <property name="eleNetIsbnFaulty">
+            <column name="eleNetIsbnFaulty" sql-type="varchar" length="10"/>
+        </property>
+        <property name="eleNetEanUsed">
+            <column name="eleNetEanUsed" sql-type="varchar" length="13"/>
+        </property>
+        <property name="eleNetIsbnUsed">
+            <column name="eleNetIsbnUsed" sql-type="varchar" length="10"/>
+        </property>
+        <property name="eleNetCurrency">
+            <column name="eleNetCurrency" sql-type="double" length="22"/>
+        </property>
+        <property name="eleNetForeignTax">
+            <column name="eleNetForeignTax" sql-type="decimal" length="10"/>
+        </property>
+        <property name="eleNetVat">
+            <column name="eleNetVat" sql-type="double" length="22"/>
+        </property>
+        <property name="eleNetResume">
+            <column name="eleNetResume" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetImage">
+            <column name="eleNetImage" sql-type="blob" length="65535"/>
+        </property>
+        <property name="eleNetCritic">
+            <column name="eleNetCritic" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetTheme">
+            <column name="eleNetTheme" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetPublisher">
+            <column name="eleNetPublisher" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetAuthor">
+            <column name="eleNetAuthor" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetResponsible">
+            <column name="eleNetResponsible" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetShelf">
+            <column name="eleNetShelf" sql-type="varchar" length="50"/>
+        </property>
+        <property name="eleNetSupportCode">
+            <column name="eleNetSupportCode" sql-type="int" length="10"/>
+        </property>
+        <property name="eleNetExtraDispo">
+            <column name="eleNetExtraDispo" sql-type="int" length="10"/>
+        </property>
+        <property name="eleNetBookBinding">
+            <column name="eleNetBookBinding" sql-type="int" length="10"/>
+        </property>
+        <property name="wCatBtitle">
+            <column name="wCatBtitle" sql-type="varchar" length="100"/>
+        </property>
+        <property name="wCatBisbn">
+            <column name="wCatBisbn" sql-type="varchar" length="10"/>
+        </property>
+        <property name="wCatBdateUpdated">
+            <column name="wCatBdateUpdated" sql-type="date" length="10"/>
+        </property>
+        <property name="wCatBauthorName">
+            <column name="wCatBauthorName" sql-type="varchar" length="100"/>
+        </property>
+        <property name="optionalFieldPersistedRefQuantum">
+            <column name="optionalFieldPersistedRefQuantum" sql-type="bigint" length="19"/>
+        </property>
+    </class>
+</hibernate-mapping>

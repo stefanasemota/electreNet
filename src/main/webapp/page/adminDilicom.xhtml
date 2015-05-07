@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>#{applicationBean.appname}</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/page/layout/layout.xhtml">
+        <ui:define name="title">#{applicationBean.appname}</ui:define>
+        <ui:define name="content">
+            <!-- MAIN -->
+            <div id="main">
+                <!-- wrapper-main -->
+                <div class="wrapper">
+
+
+                    <!-- content -->
+                    <div id="content">
+
+                        <!-- title -->
+                        <div id="page-title">
+                            <span class="title">Admin - Dilicom</span>
+                            <span class="subtitle">dilicom configurations</span>
+                        </div>
+                        <!-- ENDS title -->
+
+                        <!-- page-content -->
+                        <div id="page-content">
+                            <!-- Link buttons -->
+                            <div class="one-half">
+                                <h4 class="line-divider">Extraction</h4>
+                                <h:form id="form">
+                                    <br/>
+                                    <h:commandButton styleClass="link-button" value="Extract" action="#{extractionBean.dilicomExtract}"/>
+                                    <!-- info boxes -->
+                                    <div class="one-half">
+                                        <p class="information-box">#{extractionBean.extractionActivityText}</p>
+                                    </div>
+                                </h:form>
+
+                                <div class="clear"></div>
+                            </div>
+                            <!-- ENDS Link buttons -->
+
+                            <!-- Quotes -->
+                            <h4 class="line-divider">Book Updates</h4>
+
+                            <p>text comming</p>
+                            <!-- ENDS Quotes -->
+                        </div>
+                        <!-- ENDS page-content -->
+
+                    </div>
+                    <!-- ENDS content -->
+                </div>
+                <!-- ENDS wrapper-main -->
+            </div>
+            <!-- ENDS MAIN -->
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+</html>

@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+    <!-- HEADER -->
+    <div id="header">
+        <!-- wrapper-header -->
+        <div class="wrapper">
+            <a href="../start.xhtml"><img id="logo" src="/img/logo.png" alt="Albert le Grand"/></a>
+            <!-- search -->
+            <div class="top-search">
+                <h:form method="get" id="searchform">
+                    <div>
+                        <input type="text" value="Search..." name="s" id="s" onfocus="defaultInput(this)" onblur="clearInput(this)"/>
+                        <input type="submit" id="searchsubmit" value=" "/>
+                    </div>
+                </h:form>
+            </div>
+            <!-- ENDS search -->
+        </div>
+        <!-- ENDS wrapper-header -->
+    </div>
+    <!-- ENDS HEADER -->
+</h:body>
+</html>

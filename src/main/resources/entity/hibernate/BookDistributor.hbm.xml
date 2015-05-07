@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.BookDistributor" table="BookDistributor" catalog="meschema">
+        <id name="bookdistributorId">
+            <column name="bookdistributorId" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="algInlandTax">
+            <column name="algInlandTax" sql-type="double" length="22"/>
+        </property>
+        <property name="algTaxExempt">
+            <column name="algTaxExempt" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCvat1">
+            <column name="diliCvat_1" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCamountTaxExempt1">
+            <column name="diliCamountTaxExempt_1" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCvat2">
+            <column name="diliCvat_2" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCamountTaxExempt2">
+            <column name="diliCamountTaxExempt_2" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCvat3">
+            <column name="diliCvat_3" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCamountTaxExempt3">
+            <column name="diliCamountTaxExempt_3" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCpriceCode">
+            <column name="diliCpriceCode" sql-type="varchar" length="10"/>
+        </property>
+        <property name="diliCreturnCode">
+            <column name="diliCreturnCode" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCpriceType">
+            <column name="diliCpriceType" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCavailabilityCode">
+            <column name="diliCavailabilityCode" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCBookDistributorReference">
+            <column name="diliCBookDistributorReference" sql-type="varchar" length="12"/>
+        </property>
+        <property name="diliCdiscountClassification">
+            <column name="diliCdiscountClassification" sql-type="varchar" length="2"/>
+        </property>
+        <property name="diliCgencod">
+            <column name="diliCgencod" sql-type="bigint" length="19"/>
+        </property>
+        <property name="diliCdateOfTariffApplication">
+            <column name="diliCdateOfTariffApplication" sql-type="date" length="10"/>
+        </property>
+        <property name="diliCdatePublished">
+            <column name="diliCdatePublished" sql-type="date" length="10"/>
+        </property>
+        <property name="diliCtypeOfProduct">
+            <column name="diliCtypeOfProduct" sql-type="varchar" length="50"/>
+        </property>
+        <property name="diliCuniqueOrMultitpleDistribution">
+            <column name="diliCuniqueOrMultitpleDistribution" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCdateEndOfCommercialization">
+            <column name="diliCdateEndOfCommercialization" sql-type="date" length="10"/>
+        </property>
+        <property name="diliCpriceAndVat">
+            <column name="diliCpriceAndVat" sql-type="double" length="22"/>
+        </property>
+        <property name="eleNetCurrency">
+            <column name="eleNetCurrency" sql-type="bigint" length="19"/>
+        </property>
+        <property name="eleNetForeignTax">
+            <column name="eleNetForeignTax" sql-type="double" length="22"/>
+        </property>
+        <property name="eleNetVat">
+            <column name="eleNetVat" sql-type="double" length="22"/>
+        </property>
+        <set name="booksByBookdistributorId" inverse="true">
+            <key>
+                <column name="bookDistributorRef" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="ch.albertlegrand.data.model.Book"/>
+        </set>
+    </class>
+</hibernate-mapping>

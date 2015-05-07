@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.FutureUpdate" table="FutureUpdate" catalog="meschema">
+        <id name="futureupdateid">
+            <column name="futureupdateid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="diliCdateApplicable">
+            <column name="diliCdateApplicable" sql-type="date" length="10"/>
+        </property>
+        <property name="diliCavailabilityCode">
+            <column name="diliCavailabilityCode" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCpriceType">
+            <column name="diliCpriceType" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCpriceAndVat">
+            <column name="diliCpriceAndVat" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCdiscountClassification">
+            <column name="diliCdiscountClassification" sql-type="varchar" length="3"/>
+        </property>
+        <property name="diliCvat1">
+            <column name="diliCvat_1" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCamountTaxExempt1">
+            <column name="diliCamountTaxExempt_1" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCvat2">
+            <column name="diliCvat_2" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCamountTaxExempt2">
+            <column name="diliCamountTaxExempt_2" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCvat3">
+            <column name="diliCvat_3" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCamountTaxExempt3">
+            <column name="diliCamountTaxExempt_3" sql-type="double" length="22"/>
+        </property>
+        <property name="diliCreturnCode">
+            <column name="diliCreturnCode" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCpriceCode">
+            <column name="diliCpriceCode" sql-type="varchar" length="8"/>
+        </property>
+        <property name="diliCbookRef">
+            <column name="diliCbookRef" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

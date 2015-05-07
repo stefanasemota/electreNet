@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.Person" table="Person" catalog="meschema">
+        <id name="personid">
+            <column name="personid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="loginid" insert="false" update="false">
+            <column name="loginid" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="firstname">
+            <column name="firstname" sql-type="varchar" length="200" not-null="true"/>
+        </property>
+        <property name="lastname">
+            <column name="lastname" sql-type="varchar" length="200"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar" length="200"/>
+        </property>
+        <property name="type">
+            <column name="type" sql-type="int" length="10"/>
+        </property>
+        <property name="addressref">
+            <column name="addressref" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </property>
+        <many-to-one name="loginByLoginid" class="ch.albertlegrand.data.model.Login" cascade="save-update">
+            <column name="loginid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

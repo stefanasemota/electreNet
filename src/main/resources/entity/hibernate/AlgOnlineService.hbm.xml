@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.AlgOnlineService" table="AlgOnlineService" catalog="meschema">
+        <id name="algonlineserviceid">
+            <column name="algonlineserviceid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="hosturl">
+            <column name="hosturl" sql-type="varchar"/>
+        </property>
+        <property name="type">
+            <column name="type" sql-type="int" length="10"/>
+        </property>
+        <property name="active">
+            <column name="active" sql-type="bit"/>
+        </property>
+        <property name="usagelimit">
+            <column name="usagelimit" sql-type="bigint" length="19"/>
+        </property>
+        <property name="loginref" insert="false" update="false" lazy="false">
+            <column name="loginref" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <many-to-one name="loginByLoginref" class="ch.albertlegrand.data.model.Login" lazy="false">
+            <column name="loginref" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>#{applicationBean.appname}</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/page/layout/layout.xhtml">
+        <ui:define name="title">#{applicationBean.appname}</ui:define>
+        <ui:define name="content">
+            <!-- MAIN -->
+            <div id="main">
+                <!-- wrapper-main -->
+                <div class="wrapper">
+
+
+                    <!-- content -->
+                    <div id="content">
+
+                        <!-- title -->
+                        <div id="page-title">
+                            <span class="title">Admin - World Cat</span>
+                            <span class="subtitle"> world cat configurations</span>
+                        </div>
+                        <!-- ENDS title -->
+
+                        <!-- page-content -->
+                        <div id="page-content">
+
+                            <div class="one-half">
+                                <h4 class="line-divider">Search</h4>
+
+                                <h1>Lorem ipsum dolor</h1>
+
+                                <p>text comming.</p>
+
+                            </div>
+                            <!-- ENDS  Headers -->
+                        </div>
+                        <!-- ENDS page-content -->
+
+                    </div>
+                    <!-- ENDS content -->
+                </div>
+                <!-- ENDS wrapper-main -->
+            </div>
+            <!-- ENDS MAIN -->
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+</html>

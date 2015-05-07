@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.Address" table="Address" catalog="meschema">
+        <id name="addressid">
+            <column name="addressid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="line1">
+            <column name="line_1" sql-type="varchar" length="100"/>
+        </property>
+        <property name="line2">
+            <column name="line_2" sql-type="varchar" length="100"/>
+        </property>
+        <property name="line3">
+            <column name="line_3" sql-type="varchar" length="100"/>
+        </property>
+        <property name="cityref" insert="false" update="false">
+            <column name="cityref" sql-type="bigint unsigned" length="20" not-null="true" />
+        </property>
+        <many-to-one name="cityByCityref" class="ch.albertlegrand.data.model.City">
+            <column name="cityref" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

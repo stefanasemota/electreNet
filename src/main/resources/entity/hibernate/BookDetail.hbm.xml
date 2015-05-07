@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.BookDetail" table="BookDetail" catalog="meschema">
+        <id name="bookdetailid">
+            <column name="bookdetailid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="diliCtheme">
+            <column name="diliCtheme" sql-type="varchar" length="50"/>
+        </property>
+        <property name="diliCpublisher">
+            <column name="diliCpublisher" sql-type="varchar" length="100"/>
+        </property>
+        <property name="diliCauthor">
+            <column name="diliCauthor" sql-type="varchar" length="100"/>
+        </property>
+        <property name="diliCmovementCode">
+            <column name="diliCmovementCode" sql-type="varchar" length="1"/>
+        </property>
+        <property name="diliCcollectionName">
+            <column name="diliCcollectionName" sql-type="varchar" length="15"/>
+        </property>
+        <property name="diliCserialCollection">
+            <column name="diliCserialCollection" sql-type="varchar" length="10"/>
+        </property>
+        <property name="diliCsymbolization">
+            <column name="diliCsymbolization" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCnumberOfReference">
+            <column name="diliCnumberOfReference" sql-type="int" length="10"/>
+        </property>
+        <property name="diliClinkingCodes">
+            <column name="diliClinkingCodes" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCjointSalesPackage">
+            <column name="diliCjointSalesPackage" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCstoreDisplay">
+            <column name="diliCstoreDisplay" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCcomandableUnit">
+            <column name="diliCcomandableUnit" sql-type="int" length="10"/>
+        </property>
+        <property name="diliCeanRelatedProducts">
+            <column name="diliCeanRelatedProducts" sql-type="varchar" length="13"/>
+        </property>
+        <property name="diliCIsbnPublisher">
+            <column name="diliCIsbnPublisher" sql-type="varchar" length="10"/>
+        </property>
+        <property name="eleNetResume">
+            <column name="eleNetResume" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetImage">
+            <column name="eleNetImage" sql-type="blob" length="65535"/>
+        </property>
+        <property name="eleNetCritics">
+            <column name="eleNetCritics" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetTheme">
+            <column name="eleNetTheme" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetPublisher">
+            <column name="eleNetPublisher" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetAuthor">
+            <column name="eleNetAuthor" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetResponsible">
+            <column name="eleNetResponsible" sql-type="varchar" length="100"/>
+        </property>
+        <property name="eleNetShelf">
+            <column name="eleNetShelf" sql-type="varchar" length="50"/>
+        </property>
+        <property name="eleNetSupportCode">
+            <column name="eleNetSupportCode" sql-type="int" length="10"/>
+        </property>
+        <property name="eleNetExtraDispo">
+            <column name="eleNetExtraDispo" sql-type="int" length="10"/>
+        </property>
+        <property name="eleNetBookBinding">
+            <column name="eleNetBookBinding" sql-type="int" length="10"/>
+        </property>
+        <property name="eleNetIsbnUsed">
+            <column name="eleNetIsbnUsed" sql-type="varchar" length="10"/>
+        </property>
+        <property name="eleNetEanUsed">
+            <column name="eleNetEanUsed" sql-type="varchar" length="13"/>
+        </property>
+        <property name="wCatBdateUpdated">
+            <column name="wCatBdateUpdated" sql-type="date" length="10"/>
+        </property>
+        <property name="wCatBauthorName">
+            <column name="wCatBauthorName" sql-type="varchar" length="100"/>
+        </property>
+        <property name="diliCquantum" insert="false" update="false">
+            <column name="diliCquantum" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </property>
+        <many-to-one name="quantumByDiliCquantum" class="ch.albertlegrand.data.model.Quantum" cascade="save-update">
+            <column name="diliCquantum" not-null="true"/>
+        </many-to-one>
+        <set name="booksByBookdetailid" inverse="true">
+            <key>
+                <column name="bookDetailRef" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="ch.albertlegrand.data.model.Book"/>
+        </set>
+    </class>
+</hibernate-mapping>

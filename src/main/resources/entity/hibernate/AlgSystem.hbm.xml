@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.AlgSystem" table="AlgSystem" catalog="meschema">
+        <id name="algsystemid">
+            <column name="algsystemid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="directorylabel1">
+            <column name="directorylabel_1" sql-type="varchar" length="100"/>
+        </property>
+        <property name="directorylabel2">
+            <column name="directorylabel_2" sql-type="varchar" length="100"/>
+        </property>
+        <property name="directorylabel3">
+            <column name="directorylabel_3" sql-type="varchar" length="100"/>
+        </property>
+        <property name="awaitRepeatTime">
+            <column name="awaitRepeatTime" sql-type="time" length="8"/>
+        </property>
+        <property name="repeatCounter">
+            <column name="repeatCounter" sql-type="int" length="10"/>
+        </property>
+        <property name="proxy">
+            <column name="proxy" sql-type="bigint" length="19"/>
+        </property>
+        <property name="port">
+            <column name="port" sql-type="bigint" length="19"/>
+        </property>
+        <property name="escalationEmail">
+            <column name="escalationEmail" sql-type="varchar" length="100"/>
+        </property>
+        <property name="filename">
+            <column name="filename" sql-type="varchar" length="200"/>
+        </property>
+        <property name="firstExtraction">
+            <column name="firstExtraction" sql-type="bit"/>
+        </property>
+    </class>
+</hibernate-mapping>

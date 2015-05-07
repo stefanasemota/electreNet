@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+           http://cxf.apache.org/jaxws
+           http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <!-- *************************************************************************************** -->
+    <!-- AnnotationConfigApplicationContext -->
+    <!-- Configure annotated beans -->
+    <!-- *************************************************************************************** -->
+    <context:annotation-config/>
+    <context:component-scan base-package="ch.albertlegrand"/>
+
+    <!-- *************************************************************************************** -->
+    <!-- SPRING_XML_IMPORTS -->
+    <!-- *************************************************************************************** -->
+
+    <!-- IMPORTS: Database Configuration   -->
+    <import resource="classpath:/dataSourceBean.xml"/>
+
+     <!-- IMPORTS: Database Configuration   -->
+    <import resource="classpath:/schedulerContext.xml"/>
+
+    <!-- APPLICATION CONTEXT PROVIDER  -->
+    <import resource="classpath:hibernateSessionFactoryBean.xml"/>
+
+    <!-- SPRING_XML_IMPORTS: WEB_SERVICE   -->
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+    <bean id="propertyPlaceholder"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="false"/>
+        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="order" value="1"/>
+        <property name="locations">
+            <list>
+                <value>classpath:hibernate_mysql.properties</value>
+                <value>classpath:settings.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- *************************************************************************************** -->
+    <!-- WEB_SERVICE -->
+    <!-- *************************************************************************************** -->
+
+    <!-- Spring manage ServiceBean -->
+    <bean id="albertSearchService" class="ch.albertlegrand.webservice.AlbertSearchServiceImpl"/>
+
+    <!-- JAX-WS Service Endpoint -->
+    <jaxws:endpoint id="searchService" implementor="#albertSearchService" address="/searchService"/>
+
+    <!-- *************************************************************************************** -->
+    <!-- APPLICATION BC -->
+    <!-- *************************************************************************************** -->
+
+    <!-- APPLICATION CONTEXT PROVIDER  -->
+    <bean id="applicationContextProvider"
+          class=" ch.albertlegrand.business.utility.ApplicationContextProvider"/>
+
+    <!-- *************************************************************************************** -->
+    <!-- BUSINESS -->
+    <!-- *************************************************************************************** -->
+    <!-- Mail -->
+    <bean id="albertlegrand.business.utility.SendMail" class="ch.albertlegrand.business.utility.impl.SendMailImpl"/>
+
+    <!-- Dilicom File -->
+    <bean id="albertlegrand.business.utility.DilicomFile" class="ch.albertlegrand.business.utility.impl.DilicomFileImpl"/>
+
+    <!-- Search term -->
+    <bean id="albertlegrand.business.utility.impl.ALGSearchTerm" class="ch.albertlegrand.business.utility.impl.ALGSearchTermImpl"/>
+
+    <!-- ElectreAdaptor  -->
+    <bean id="albertlegrand.service.pluginCatalogue.elenet.ElectreAdaptor"
+          class="ch.albertlegrand.service.pluginCatalogue.elenet.ElectreAdaptorImpl"/>
+
+    <!-- DilicomAdaptor  -->
+    <bean id="albertlegrand.service.pluginCatalogue.worldcat.WorldCatAdaptorl"
+          class="ch.albertlegrand.service.pluginCatalogue.worldcat.WorldCatAdaptorImpl"/>
+
+    <!-- PluginServiceBC
+    <bean id="albertlegrand.business.catalogue.PluginServiceBC"
+          class="ch.albertlegrand.service.businesslogic.impl.PluginServiceBCImpl"/>
+          -->
+
+    <!-- BookBC -->
+    <bean id="albertlegrand.business.bc.Book"
+          class="ch.albertlegrand.business.bc.impl.BookBCImpl"/>
+
+    <bean id="albertlegrand.business.bc.ScrapBookBC" class="ch.albertlegrand.business.bc.impl.ScrapBookBCImpl"/>
+
+    <!-- *************************************************************************************** -->
+    <!-- Catalogue BC classes -->
+
+    <!-- worldcat -->
+    <bean id="albertlegrand.business.catalogue.WorldCatBC"
+          class="ch.albertlegrand.business.catalogue.impl.WorldCatBCImpl"/>
+
+    <!-- ElectreNetBC -->
+    <bean id="albertlegrand.business.catalogue.ElectreNetBC"
+          class="ch.albertlegrand.business.catalogue.impl.ElectreNetBCImpl"/>
+
+    <!-- DilicomBC -->
+    <bean id="albertlegrand.business.catalogue.DilicomBC"
+          class="ch.albertlegrand.business.catalogue.impl.DilicomBCImpl">
+        <property name="extractionPath" value="${fileExtractionPath}"/>
+    </bean>
+
+    <!-- FTP -->
+    <bean id="albertlegrand.service.pluginCatalogue.ftp.AlbertFTPClientAdaptor"
+          class="ch.albertlegrand.service.pluginCatalogue.ftp.impl.AlbertFtpClientAdaptorImpl"/>
+
+    <bean id="daoExtractBook" class="ch.albertlegrand.service.businesslogic.impl.JdbcDaoSupportServices">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="springJdbcTemplateExtractor" class="ch.albertlegrand.business.utility.SpringJdbcTemplateExtractor">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>

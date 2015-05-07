@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.Quantum" table="Quantum" catalog="meschema">
+        <id name="quantumid">
+            <column name="quantumid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19"/>
+        </property>
+        <property name="thickness">
+            <column name="thickness" sql-type="double" length="22"/>
+        </property>
+        <property name="height">
+            <column name="height" sql-type="double" length="22"/>
+        </property>
+        <property name="width">
+            <column name="width" sql-type="double" length="22"/>
+        </property>
+        <property name="weight">
+            <column name="weight" sql-type="double" length="22"/>
+        </property>
+        <set name="bookDetailsByQuantumid" inverse="true">
+            <key>
+                <column name="diliCquantum" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="ch.albertlegrand.data.model.BookDetail"/>
+        </set>
+    </class>
+</hibernate-mapping>

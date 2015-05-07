@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.Login" table="Login" catalog="meschema">
+        <id name="username">
+            <column name="username" sql-type="varchar" length="100" not-null="true"/>
+        </id>
+        <property name="loginid">
+            <column name="loginid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </property>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="accountlocked">
+            <column name="accountlocked" sql-type="bit"/>
+        </property>
+        <set name="algOnlineServicesByUsername" inverse="true">
+            <key>
+                <column name="loginref" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="ch.albertlegrand.data.model.AlgOnlineService"/>
+        </set>
+        <set name="authoritiesByUsername" inverse="true">
+            <key>
+                <column name="username" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="ch.albertlegrand.data.model.Authority"/>
+        </set>
+        <set name="personsByUsername" inverse="true">
+            <key>
+                <column name="loginid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="ch.albertlegrand.data.model.Person"/>
+        </set>
+    </class>
+</hibernate-mapping>

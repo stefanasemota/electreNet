@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.Book" table="Book" catalog="meschema">
+        <id name="bookid">
+            <column name="bookid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="version">
+            <column name="version" sql-type="bigint" length="19" not-null="true"/>
+        </property>
+        <property name="albertLeGrandTitle">
+            <column name="albertLeGrandTitle" sql-type="varchar" length="200"/>
+        </property>
+        <property name="diliCwordingExtended">
+            <column name="diliCwordingExtended" sql-type="varchar" length="200"/>
+        </property>
+        <property name="diliCwordingStandard">
+            <column name="diliCwordingStandard" sql-type="varchar" length="200"/>
+        </property>
+        <property name="diliCwordingCounter">
+            <column name="diliCwordingCounter" sql-type="varchar" length="200"/>
+        </property>
+        <property name="eleNetTitle">
+            <column name="eleNetTitle" sql-type="varchar" length="200"/>
+        </property>
+        <property name="eleNetCompleteTitle">
+            <column name="eleNetCompleteTitle" sql-type="varchar" length="200"/>
+        </property>
+        <property name="wCatBtitle">
+            <column name="wCatBtitle" sql-type="varchar" length="200"/>
+        </property>
+        <property name="ean">
+            <column name="ean" sql-type="varchar" length="13"/>
+        </property>
+        <property name="isbn">
+            <column name="isbn" sql-type="varchar" length="10"/>
+        </property>
+        <property name="markAsDeleted">
+            <column name="markAsDeleted" sql-type="bit"/>
+        </property>
+        <property name="dateUpdated">
+            <column name="dateUpdated" sql-type="date" length="10"/>
+        </property>
+        <property name="dateExtraction">
+            <column name="dateExtraction" sql-type="date" length="10"/>
+        </property>
+        <property name="datePublished">
+            <column name="datePublished" sql-type="date" length="10"/>
+        </property>
+        <property name="authorName">
+            <column name="authorName" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="publisherName">
+            <column name="publisherName" sql-type="varchar" length="100"/>
+        </property>
+        <property name="bookBinding">
+            <column name="bookBinding" sql-type="varchar" length="2"/>
+        </property>
+        <property name="productType">
+            <column name="productType" sql-type="int" length="10"/>
+        </property>
+        <property name="bookDetailRef" insert="false" update="false" lazy="false">
+            <column name="bookDetailRef" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </property>
+        <property name="bookDistributorRef" insert="false" update="false" lazy="false">
+            <column name="bookDistributorRef" sql-type="bigint unsigned" length="20" not-null="true" />
+        </property>
+        <property name="algOnlineServiceRef" insert="false" update="false" lazy="false">
+            <column name="algOnlineServiceRef" sql-type="bigint unsigned" length="20" not-null="true" />
+        </property>
+        <many-to-one name="bookDistributorByBookDistributorRef" class="ch.albertlegrand.data.model.BookDistributor" cascade="save-update">
+            <column name="bookDistributorRef" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="bookDetailByBookDetailRef" class="ch.albertlegrand.data.model.BookDetail" cascade="save-update">
+            <column name="bookDetailRef" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

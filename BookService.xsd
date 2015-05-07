@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+           xmlns:tns="http://webservice.albertlegrand.ch/"
+           targetNamespace="http://webservice.albertlegrand.ch/">
+
+    <xs:element name="albertSearchTO" type="tns:albertSearchTO"/>
+    <xs:element name="rawHitListObject" type="tns:rawHitListObject"/>
+    <xs:element name="searchBookEan" type="tns:searchBookEan"/>
+    <xs:element name="searchBookEanResponse" type="tns:searchBookEanResponse"/>
+    <xs:element name="searchBookTitle" type="tns:searchBookTitle"/>
+    <xs:element name="searchBookTitleResponse" type="tns:searchBookTitleResponse"/>
+    <xs:element name="webserviceVersion" type="tns:webserviceVersion"/>
+    <xs:element name="webserviceVersionResponse" type="tns:webserviceVersionResponse"/>
+    <xs:complexType name="webserviceVersion">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="webserviceVersionResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchBookEan">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchBookEanResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchBookTitle">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchBookTitleResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:albertSearchTO"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="albertSearchTO">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="results" nillable="true" type="tns:rawHitListObject"/>
+            <xs:element minOccurs="0" name="message" type="xs:string"/>
+            <xs:element minOccurs="0" name="returncode" nillable="true" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="rawHitListObject">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="authorName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="bookSource" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="bookTitle" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="datePublished" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="eanNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="isbnNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

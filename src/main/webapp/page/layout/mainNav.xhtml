@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+    <!-- Menu -->
+    <div id="menu">
+        <!-- ENDS menu-holder -->
+        <div id="menu-holder">
+            <!-- wrapper-menu -->
+            <div class="wrapper">
+                <h:form id="mainNavForm" style="margin: 0px; padding: 0px;">
+                    <!-- Navigation -->
+                    <ul id="nav" class="sf-menu">
+                        <li class="current-menu-item"><a href="#{facesContext.externalContext.requestContextPath}/index.html">Home<span class="subheader">Welcome</span></a></li>
+                        <li><a>Admin<span class="subheader">Awesome options</span></a>
+                            <ul>
+                                <li><a href="#{facesContext.externalContext.requestContextPath}/page/adminDilicom.xhtml"><span> Dilicom</span></a></li>
+                                <li><a href="#{facesContext.externalContext.requestContextPath}/page/adminWorldCat.xhtml"><span> WorldCat</span></a></li>
+                                <li><a href="#{facesContext.externalContext.requestContextPath}/page/adminElectre.xhtml"><span> Electre</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#{facesContext.externalContext.requestContextPath}/page/contact.xhtml">Contact<span class="subheader">Get in touch</span></a></li>
+                        <li><h:commandLink action="#{logOutBean.doLogout}" value="#{labels['logout']}"/><br/></li>
+                    </ul>
+                    <!-- Navigation -->
+                </h:form>
+            </div>
+            <!-- wrapper-menu -->
+        </div>
+        <!-- ENDS menu-holder -->
+    </div>
+    <!-- ENDS Menu -->
+</h:body>
+</html>

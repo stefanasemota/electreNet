@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>#{applicationBean.appname}</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/page/layout/layout.xhtml">
+        <ui:define name="title">#{applicationBean.appname}</ui:define>
+        <ui:define name="content">
+            <!-- MAIN -->
+			<div id="main">
+				<!-- wrapper-main -->
+				<div class="wrapper">
+
+					<!-- content -->
+					<div id="content">
+
+						<!-- title -->
+						<div id="page-title">
+							<span class="title">Contact us</span>
+							<span class="subtitle">Donec eu libero sit amet quam egestas semper.</span>
+						</div>
+						<!-- ENDS title -->
+
+						<!-- column (left)-->
+						<div class="one-column">
+							<!-- form -->
+							<h2>Contact Form</h2>
+							<script type="text/javascript" src="js/form-validation.js"></script>
+							<form id="contactForm" action="#" method="post">
+								<fieldset>
+									<div>
+										<label>Name</label>
+										<input name="name"  id="name" type="text" class="form-poshytip" title="Enter your full name" />
+									</div>
+									<div>
+										<label>Email</label>
+										<input name="email"  id="email" type="text" class="form-poshytip" title="Enter your email address" />
+									</div>
+									<div>
+										<label>Website</label>
+										<input name="web"  id="web" type="text" class="form-poshytip" title="Enter your website" />
+									</div>
+									<div>
+										<label>Comments</label>
+										<textarea  name="comments"  id="comments" rows="5" cols="20" class="form-poshytip" title="Enter your comments"></textarea>
+									</div>
+
+									<!-- send mail configuration -->
+									<input type="hidden" value="youremail@yourserver.com" name="to" id="to" />
+									<input type="hidden" value="youremail@yourserver.com" name="from" id="from" />
+									<input type="hidden" value="From torn wordpress online" name="subject" id="subject" />
+									<input type="hidden" value="send-mail.php" name="sendMailUrl" id="sendMailUrl" />
+									<!-- ENDS send mail configuration -->
+
+									<p><input type="button" value="SEND" name="submit" id="submit" /></p>
+								</fieldset>
+								<p id="error" class="warning">Message</p>
+							</form>
+							<p id="success" class="success">Thanks for your comments.</p>
+							<!-- ENDS form -->
+						</div>
+						<!-- ENDS column -->
+
+						<!-- column (right)-->
+						<div class="one-column">
+							<!-- content -->
+							<p><img src="#{facesContext.externalContext.requestContextPath}/img/dummies/map.jpg" alt="map"/></p>
+							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+							<p>Chambers St 1254 New York City<br/>
+							USA ZIP 44511<br/>
+							(33) 1234 5677, (33) 12459876<br/>
+							<a href="mailto:email@server.com">email@server.com</a></p>
+							<!-- ENDS content -->
+						</div>
+						<!-- ENDS column -->
+
+					</div>
+					<!-- ENDS content -->
+
+				</div>
+				<!-- ENDS wrapper-main -->
+			</div>
+			<!-- ENDS MAIN -->
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ch.albertlegrand.data.model.Authority" table="Authority" catalog="meschema">
+        <id name="authorityid">
+            <column name="authorityid" sql-type="bigint unsigned" length="20" not-null="true"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <property name="username" insert="false" update="false">
+            <column name="username" sql-type="varchar" length="100" not-null="true"/>
+        </property>
+        <many-to-one name="loginByUsername" class="ch.albertlegrand.data.model.Login">
+            <column name="username" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

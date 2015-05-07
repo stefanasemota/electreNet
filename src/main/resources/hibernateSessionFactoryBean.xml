@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
+
+    <!-- *************************************************************************************** -->
+    <!-- Holding properties for data source albert le grand -->
+    <!-- *************************************************************************************** -->
+    <!-- SESSION FACTORY -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.show_sql">${db1.hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${db1.hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.cache.provider_class">${db1.hibernate.cache.provider_class}</prop>
+                <prop key="hibernate.cache.use_query_cache">${db1.hibernate.cache.use_query_cache}</prop>
+                <prop key="hibernate.max_fetch_depth">${db1.hibernate.max_fetch_depth}</prop>
+                <prop key="hibernate.proxool.pool_alias">PoolDb1</prop>
+                <prop key="hibernate.jdbc.batch_versioned_data">${db1.hibernate.jdbc.batch_versioned_data}</prop>
+                <prop key="hibernate.jdbc.use_streams_for_binary">${db1.hibernate.jdbc.use_streams_for_binary}</prop>
+                <prop key="hibernate.c3p0.max_size">${db1.hibernate.c3p0.max_size}</prop>
+                <prop key="hibernate.c3p0.max_size">${db1.hibernate.c3p0.max_size}</prop>
+                <prop key="hibernate.c3p0.min_size">${db1.hibernate.c3p0.min_size}</prop>
+                <prop key="hibernate.c3p0.timeout">${db1.hibernate.c3p0.timeout}</prop>
+                <prop key="hibernate.c3p0.max_statements">${db1.hibernate.c3p0.max_statements}</prop>
+                <prop key="hibernate.c3p0.idle_test_period">${db1.hibernate.c3p0.idle_test_period}</prop>
+                <prop key="hibernate.c3p0.acquire_increment">${db1.hibernate.c3p0.acquire_increment}</prop>
+            </props>
+        </property>
+        <!-- Annotated Classes SEARCH -->
+        <property name="annotatedClasses">
+            <list>
+                <value>ch.albertlegrand.data.model.Address</value>
+                <value>ch.albertlegrand.data.model.AlgOrder</value>
+                <value>ch.albertlegrand.data.model.AlgSystem</value>
+                <value>ch.albertlegrand.data.model.Authority</value>
+                <value>ch.albertlegrand.data.model.Book</value>
+                <value>ch.albertlegrand.data.model.BookDetail</value>
+                <value>ch.albertlegrand.data.model.BookDistributor</value>
+                <value>ch.albertlegrand.data.model.Booktitle</value>
+                <value>ch.albertlegrand.data.model.City</value>
+                <value>ch.albertlegrand.data.model.FutureUpdate</value>
+                <value>ch.albertlegrand.data.model.Login</value>
+                <value>ch.albertlegrand.data.model.Person</value>
+                <value>ch.albertlegrand.data.model.Quantum</value>
+                <value>ch.albertlegrand.data.model.ScrapBook</value>
+                <value>ch.albertlegrand.data.model.AlgOnlineService</value>
+            </list>
+        </property>
+        <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+        </property>
+        <!-- Hibernate session factory properties-->
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:entity/hibernate/Address.hbm.xml</value>
+                <value>classpath:entity/hibernate/AlgOrder.hbm.xml</value>
+                <value>classpath:entity/hibernate/AlgSystem.hbm.xml</value>
+                <value>classpath:entity/hibernate/Authority.hbm.xml</value>
+                <value>classpath:entity/hibernate/Book.hbm.xml</value>
+                <value>classpath:entity/hibernate/BookDetail.hbm.xml</value>
+                <value>classpath:entity/hibernate/BookDistributor.hbm.xml</value>
+                <value>classpath:entity/hibernate/Booktitle.hbm.xml</value>
+                <value>classpath:entity/hibernate/City.hbm.xml</value>
+                <value>classpath:entity/hibernate/FutureUpdate.hbm.xml</value>
+                <value>classpath:entity/hibernate/Login.hbm.xml</value>
+                <value>classpath:entity/hibernate/Person.hbm.xml</value>
+                <value>classpath:entity/hibernate/Quantum.hbm.xml</value>
+                <value>classpath:entity/hibernate/ScrapBook.hbm.xml</value>
+                <value>classpath:entity/hibernate/AlgOnlineService.hbm.xml</value>
+                <value>classpath:entity/hibernate/AlgOnlineService.hbm.xml</value>
+                <value>classpath:entity/hibernate/User.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- TRANSACTION_MANAGER bean -->
+    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- TRANSACTION_MANAGER -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+</beans>

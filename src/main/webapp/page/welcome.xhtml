@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+
+    <ui:composition template="/page/layout/layout.xhtml">
+        <ui:define name="title">#{applicationBean.appname}</ui:define>
+        <ui:define name="content">
+            <!-- MAIN -->
+            <div id="main">
+                <!-- wrapper-main -->
+                <div class="wrapper">
+                     <!-- headline -->
+                    <div class="clear"></div>
+                    <div id="headline">
+                        <span class="main">Hi #{sessionBean.user.username}!</span>
+                        <span class="sub">Welcome to the configuration and search application</span>
+                    </div>
+                    <!-- ENDS headline -->
+                </div>
+                <!-- ENDS wrapper-main -->
+            </div>
+            <!-- ENDS MAIN -->
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+</html>
